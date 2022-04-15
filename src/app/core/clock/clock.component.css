@@ -1,0 +1,10 @@
+.time {
+  color: white;
+  margin: 1.2rem;
+  border-bottom: 1px solid #4caf50;
+  width: 10%;
+  overflow: hidden;
+  font-size: 20px;
+  padding: 8px 0;
+  border-bottom: 1px solid #4caf50;
+}

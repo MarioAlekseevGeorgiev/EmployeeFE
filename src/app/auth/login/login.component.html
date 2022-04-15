@@ -1,0 +1,33 @@
+
+<form class="login" action="" method="post" [formGroup]="loginFormGroup" (ngSubmit)="handleLogin()" >
+  <div class="login-box" >
+    <h1>Login</h1>
+    <div class="textbox">
+      <label for="email"><span><i class="fas fa-envelope"></i></span></label>
+      <input type="text" formControlName="email" placeholder="email" name="email" id="email" value="">
+      <ng-container *ngIf="loginFormGroup.controls['email'].touched && loginFormGroup.controls['email'].invalid">
+        <p class="error" *ngIf="loginFormGroup.controls['email'].errors?.['required']">
+          Email is required!
+        </p>
+        <p *ngIf="loginFormGroup.controls['email'].errors?.['email']" class="error">
+          Email is not valid!
+        </p>
+      </ng-container>
+
+    </div>
+    <div class="textbox">
+      <label for="password"><span><i class="fas fa-lock"></i></span></label>
+      <input type="password" formControlName="password" placeholder="Password" name="password" id="password" value="">
+      <ng-container *ngIf="loginFormGroup.controls['password'].touched && loginFormGroup.controls['password'].invalid">
+        <p class="error" *ngIf="loginFormGroup.controls['password'].errors?.['required']">
+          Password is required!
+        </p>
+        <p class="error" *ngIf="loginFormGroup.controls['password'].errors?.['minlength']">
+          Password must be at least 5 characters!
+        </p>
+      </ng-container>
+    </div>
+    <input class="btn" [disabled]="loginFormGroup.invalid" type="submit" value="Sign in">
+  </div>
+
+</form>

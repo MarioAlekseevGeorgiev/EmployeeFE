@@ -1,0 +1,71 @@
+.login-box {
+  width: 280px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+.login-box h1 {
+  float: left;
+  font-size: 40px;
+  border-bottom: 6px solid #4caf50;
+  margin-bottom: 50px;
+  padding: 13px 0;
+}
+
+.table{
+  background: none;
+}
+
+.textbox {
+  width: 100%;
+  overflow: hidden;
+  font-size: 20px;
+  padding: 8px 0;
+  margin: 8px 0;
+  border-bottom: 1px solid #4caf50;
+}
+
+.login-box button {
+  border: none;
+  border-radius: 0.3em;
+  padding: 0.6em 1.2em;
+  margin-top: 1.5rem;
+  width: 50%;
+  outline: none;
+}
+
+.textbox input {
+  border: none;
+  outline: none;
+  background: none;
+  color: white;
+  font-size: 18px;
+  width: 80%;
+  float: left;
+  margin: 0 10px;
+}
+
+.btn {
+  width: 100%;
+  background: none;
+  border: 2px solid #4caf50;
+  padding: 5px;
+  color: white;
+  margin-top: 0.5rem;
+}
+
+p.error {
+  text-align: left;
+  border-radius: 0.3em;
+  color: #d73b3b;
+  padding-top: 0;
+}
+
+.modal-footer {
+  border: none;
+}
+
+

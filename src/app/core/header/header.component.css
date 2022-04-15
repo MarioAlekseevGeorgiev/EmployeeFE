@@ -1,0 +1,30 @@
+@import 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css';
+@import 'https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css';
+
+
+.error-message{
+  background-color: rgba(238, 74, 74, 0.699);
+}
+
+.success-message {
+  background-color: #4caf50;
+  color: #ffffff;
+  font-size: 18px;
+}
+
+.notification {
+  position: fixed;
+  z-index: 10;
+  right: 8%;
+  top: 8%;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  color: rgb(255, 255, 255);
+  font-style: italic;
+  text-decoration: underline;
+  box-shadow:05px 10px rgb(204, 204, 204);
+}
+
+.logout{
+  color: #4caf50;
+}

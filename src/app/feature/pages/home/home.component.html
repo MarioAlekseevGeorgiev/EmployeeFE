@@ -1,0 +1,9 @@
+<!-- homepage -->
+
+    <div class="welcome" *ngIf="!isLoggedIn">
+      <h3>Employee app</h3>
+    </div>
+
+<div class="welcome" *ngIf="isLoggedIn">
+  <h3>Welcome {{currentUser?.username}}</h3>
+</div>

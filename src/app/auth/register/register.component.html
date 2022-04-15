@@ -1,0 +1,63 @@
+<form class="register" action="" method="post" [formGroup]="registerFormGroup" (ngSubmit)="handleRegister()" >
+
+<div class="register-box">
+  <h1>Register</h1>
+
+  <div class="textbox">
+    <label for="username"><span><i class="fas fa-user"></i></span></label>
+    <input formControlName="username" type="text" placeholder="username" name="username" id="username" value="">
+  </div>
+
+  <ng-container *ngIf="registerFormGroup.controls['username'].touched && registerFormGroup.controls['username'].invalid">
+    <p *ngIf="registerFormGroup.controls['username'].errors?.['required']" class="error" >
+      Username is required!
+    </p>
+    <p *ngIf="registerFormGroup.controls['username'].errors?.['minlength']" class="error" >
+      Username must be at least 5 characters!
+    </p>
+  </ng-container>
+
+  <div class="textbox">
+    <label for="email"><span><i class="fas fa-envelope"></i></span></label>
+    <input formControlName="email" type="text" placeholder="email" name="email" id="email" value="">
+  </div>
+
+  <ng-container *ngIf="registerFormGroup.controls['email'].touched && registerFormGroup.controls['email'].invalid">
+    <p *ngIf="registerFormGroup.controls['email'].errors?.['required']" class="error">
+      Email is required!
+    </p>
+    <p *ngIf="registerFormGroup.controls['email'].errors?.['email']" class="error">
+      Email is not valid!
+    </p>
+
+  </ng-container>
+
+  <div formGroupName="passwords">
+    <div class="textbox">
+      <label for="password"><span><i class="fas fa-lock"></i></span></label>
+      <input formControlName="password" type="password" placeholder="Password" name="password" id="password" value="">
+    </div>
+    <ng-container *ngIf="shouldShowErrorControl('password', passwordsGroup)">
+      <p class="error" *ngIf="passwordsGroup.controls['password'].errors?.['required']">
+        Password is required!
+      </p>
+      <p class="error" *ngIf="passwordsGroup.controls['password'].errors?.['minlength']">
+        Password must be at least 5 characters!
+      </p>
+    </ng-container>
+
+    <div class="textbox">
+      <label for="rePassword"><span><i class="fas fa-lock"></i></span></label>
+      <input formControlName="rePassword" type="password" placeholder="Confirm Password" name="rePassword" id="rePassword" value="">
+    </div>
+    <ng-container *ngIf="passwordsGroup.controls['rePassword'].touched && passwordsGroup.controls['rePassword'].invalid">
+      <p class="error" >
+        Repeat Password does not match password!
+      </p>
+    </ng-container>
+  </div>
+
+  <input [disabled]="registerFormGroup.invalid" class="btn" type="submit" value="Register">
+</div>
+
+  </form>

@@ -1,0 +1,36 @@
+<header>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">   <a class="navbar-brand" style="color: white;"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02"
+              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarColor02">
+        <div *ngIf="!isLoggedIn">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+             <a href="#" routerLink="/login" class="nav-link"> Login<span class="sr-only">(current)</span> </a>-
+            </li>
+            <li class="nav-item active">
+              <a href="#" routerLink="/register" class="nav-link"> Register<span class="sr-only">(current)</span> </a>
+            </li>
+          </ul>
+        </div>
+        <div *ngIf="!!isLoggedIn">
+          <ul class="navbar-nav mr-auto" >
+            <li class="nav-item active">
+              <a href="javascript:void(0);" routerLink="/employee" class="nav-link" >Go to employees blocks <span class="sr-only">(current)</span> </a>
+            </li>
+            <li class="nav-item active">
+              <a href="javascript:void(0);" routerLink="/employeeTable" class="nav-link" >Go to employees table <span class="sr-only">(current)</span> </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <p *ngIf="message" [ngClass]="{'error-message' : isMessageError, 'success-message' : !isMessageError}"  class="notification">{{message}}</p>
+      <div *ngIf="!!isLoggedIn">
+          <a href="#" (click)="logOut()" class="nav-link logout"> Logout<span class="sr-only">(current)</span> </a>
+      </div>
+    </nav>
+  <app-clock></app-clock>
+</header>

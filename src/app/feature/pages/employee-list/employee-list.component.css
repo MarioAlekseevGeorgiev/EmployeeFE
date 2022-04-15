@@ -1,0 +1,83 @@
+.card {
+  background-color: black;
+  color: #4caf50;
+}
+
+.container{
+  background-color: black;
+}
+
+.list-group-item {
+  background-color: black;
+  color: white;
+  border-bottom: 2px solid #4caf50;
+  padding: 8px 1px;
+  margin: 10px 2em;
+}
+
+.textbox {
+  width: 100%;
+  overflow: hidden;
+  font-size: 20px;
+  padding: 8px 0;
+  margin: 8px 0;
+  border-bottom: 1px solid #4caf50;
+}
+
+.a{
+  color: #4caf50;
+}
+
+.title{
+  color: white;
+}
+
+.edit{
+  border: 2px solid #4caf50;
+  background-color: black;
+}
+
+.delete {
+  border: 2px solid #4caf50;
+  background-color: black;
+}
+
+.modal-content{
+  background-color: black;
+  color: white;
+  margin: 2.0em;
+}
+
+.textbox {
+  width: 100%;
+  overflow: hidden;
+  font-size: 20px;
+  padding: 8px 0;
+  margin: 8px 0;
+  border-bottom: 1px solid #4caf50;
+}
+
+.textbox input {
+  border: none;
+  outline: none;
+  background: none;
+  color: white;
+  font-size: 18px;
+  width: 80%;
+  float: left;
+  margin: 0 10px;
+}
+
+.btn {
+  width: 100%;
+  background: none;
+  border: 2px solid #4caf50;
+  padding: 5px;
+  color: white;
+  margin-top: 0.5rem;
+}
+
+.modal-header {
+  border: none;
+}
+

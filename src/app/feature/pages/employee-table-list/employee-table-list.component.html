@@ -1,0 +1,64 @@
+
+<h1> Employees</h1>
+<div class="table-serach">
+  <div class="table-serach-content">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xs-offset-3">
+          <form #searchForm="ngForm" (ngSubmit)="search()">
+            <div class="form-group textbox">
+              <input ngModel type="text" class="form-control" id="name" name="name" placeholder="Name" >
+            </div>
+            <div class="form-group textbox">
+              <input ngModel type="email" class="form-control" id="email" name="email" placeholder="Email">
+            </div>
+            <div class="form-group textbox">
+              <input ngModel type="text" class="form-control" id="subject" name="phone" placeholder="Subject">
+            </div>
+            <div class="form-group textbox">
+              <input ngModel type="text" class="form-control" id="jobTitle" name="jobTitle" placeholder="Job Title">
+            </div>
+            <div class="text-center">
+              <button type="submit" class="btn btn-start-order search">SEARCH</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th class="th">Name</th>
+            <th class="th">Email</th>
+            <th class="th">Job Title</th>
+            <th class="th">Phone</th>
+          </tr>
+        </thead>
+
+        <tbody>
+        <tr *ngFor="let paginatedEmployee of employees">
+          <th> {{paginatedEmployee.name}} </th>
+          <th> {{paginatedEmployee.email}} </th>
+          <th> {{paginatedEmployee.jobTitle}} </th>
+          <th> {{paginatedEmployee.phone}} </th>
+        </tr>
+        </tbody>
+    </table>
+
+    <div *ngIf="!!employees">
+      <div>
+        <button [disabled]="currentPage === 0" (click)="goOnePageBck()" class="btn">Previous page </button>
+        <label>
+          Page <label class="inner-label">{{currentPage + 1}} </label> of <label class="inner-label"> {{ getTotalPages() }} </label>
+        </label>
+        <button [disabled]="(currentPage + 1) * pagesize >= totalResults" (click)="goOnePageForward()" class="btn">Next page </button>
+      </div>
+    </div>
+
+  </div>
+</div>
