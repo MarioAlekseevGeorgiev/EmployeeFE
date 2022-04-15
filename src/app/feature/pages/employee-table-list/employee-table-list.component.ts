@@ -4,6 +4,8 @@ import {Paginated} from "../../../auth/util";
 import {Employee} from "../employee-list/employee";
 import {NgForm} from "@angular/forms";
 import {MessageBusService, MessageType} from "../../../core/message/message-bus.service";
+import {IUser} from "../../../core/interfaces/user";
+import {AuthService} from "../../../auth/auth.service";
 
 @Component({
   selector: 'app-employee-table-list',
@@ -14,7 +16,9 @@ export class EmployeeTableListComponent implements OnInit {
 
   @ViewChild('searchForm') searchForm?: NgForm;
 
-  constructor(private employeeService: EmployeeService, private messageBus: MessageBusService) { }
+  currentUser!: IUser;
+
+  constructor(private employeeService: EmployeeService, private messageBus: MessageBusService, private authService: AuthService) { }
 
    paginatedEmployees?: Paginated<Employee>;
    employees?: Employee[];
@@ -28,7 +32,11 @@ export class EmployeeTableListComponent implements OnInit {
    phone: string = '';
    jobTitle: string = '';
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.authService.currentUser$.subscribe(currentUser => {
+      this.currentUser = currentUser;
+    });
+  }
 
   goOnePageBck() {
      this.currentPage--;
@@ -55,7 +63,7 @@ export class EmployeeTableListComponent implements OnInit {
     this.phone    = phone;
     this.jobTitle = jobTitle;
 
-    this.employeeService.getEmployeesSearchPageable$(1, name, email, phone, jobTitle, this.pagesize, this.currentPage).subscribe({
+    this.employeeService.getEmployeesSearchPageable$(this.currentUser.id, name, email, phone, jobTitle, this.pagesize, this.currentPage).subscribe({
       next: value => {
         this.paginatedEmployees = value;
         if (this.paginatedEmployees.result.length !== 0) {
